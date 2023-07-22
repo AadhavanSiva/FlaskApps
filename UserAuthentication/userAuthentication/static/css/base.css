@@ -1,0 +1,36 @@
+.nav-link {
+  list-style: none;
+  text-align: center;
+  color:black;
+    font-size: 24px;
+
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+    font-size: 24px;
+
+}
+
+.nav-link:hover {
+  background-color: #E3E3E3;
+  color:black;
+    font-size: 24px;
+
+}
+
+.logo {
+  color: black;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.register{
+      background-color: yellow;
+
+}

@@ -9,7 +9,6 @@ login_manager = LoginManager()
 global app
 app = Flask(__name__)
 
-
 app.config['SECRET_KEY'] = 'msk'
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir,'data.sqlite')

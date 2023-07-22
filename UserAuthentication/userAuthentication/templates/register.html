@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #666;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #4CAF50;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error-message {
+      color: #ff0000;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+  </style>
+
+<body>
+
+  <div class="container mt-3 mb-3">
+    <h2 >Registration Page</h2>
+       <form method="post">
+                         {{ form.hidden_tag() }}
+
+      <label for="{{ form.username.id }}">{{ form.username.label }}</label>
+                        {{ form.username() }}
+      <span class="error-message"> {{username_message}}</span>
+
+      <label for="{{ form.email.id }}">{{ form.email.label }}</label>
+           {{ form.email() }}
+
+      <span class="error-message"> {{email_message}}</span>
+      <label for="{{ form.password.id }}">{{ form.password.label }}</label>
+                        {{ form.password() }}
+
+      <label for="{{ form.pass_confirm.id }}">{{ form.pass_confirm.label }}</label>
+                        {{ form.pass_confirm() }}
+
+        {% if form.pass_confirm() == form.password() %}
+           <span class="error-message">  Password mismatch </span> <br/>
+        {% endif %}
+
+      <button type="submit" class="btn btn-primary">Register</button>
+
+       </form>
+  </div>
+</body>
+{% endblock %}
