@@ -1,5 +1,13 @@
 {% extends "base.html" %}
+
 {% block content %}
+<style>
+    body {
+      background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+      font-family: Arial, sans-serif;
+    }
+   </style>
+<body>
 <div class="jumbotron">
     {% if current_user.is_authenticated %}
     <p> {{current_user.username}} </p>
@@ -8,4 +16,6 @@
     {% endif %}
 
 </div>
+
+</body>
 {% endblock %}
