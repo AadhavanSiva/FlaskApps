@@ -14,12 +14,36 @@
 
 }
 
+body {
+      background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+      font-family: Arial, sans-serif;
+    }
+
+h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+form {
+      margin-top: 20px;
+    }
+
 .nav-link:hover {
   background-color: #E3E3E3;
   color:black;
     font-size: 24px;
 
 }
+
+.center-body {
+      width:35%;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
 .logo {
   color: black;
