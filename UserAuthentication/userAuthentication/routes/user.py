@@ -14,9 +14,7 @@ userView = Blueprint('UserRoutes',__name__, template_folder='/templates')
 def logout():
     logout_user()
     flash('you logged out!')
-    return redirect(url_for('home'))
-
-
+    return redirect(url_for('StaticRoutes.home'))
 
 @userView.route('/login',methods=['GET','POST'])
 def login():
@@ -40,7 +38,7 @@ def login():
 
                 if next == None or not next[0] == '/':
                     app.logger.info("before welcome_user")
-                    next = url_for('welcome_user')
+                    next = url_for('StaticRoutes.welcome_user')
                     app.logger.info("before next/welcome_user redirect")
                 return redirect(next)
 
