@@ -66,7 +66,7 @@ def register():
 
         flash("Thanks for registration!")
 
-        return redirect(url_for('login'))
+        return redirect(url_for('UserRoutes.login'))
     else:
         print("......validation failed for .....")
     return render_template('register.html',form=form)
