@@ -4,20 +4,29 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 import logging
+#from flaskext.mysql import MySQL
+from flask_mysqldb import MySQL
+import MySQLdb.cursors
 
 login_manager = LoginManager()
 global app
 app = Flask(__name__)
 
-
-
 app.config['SECRET_KEY'] = '***REMOVED***'
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir,'data.sqlite')
-app.config['SQLALCHEMY_TRACK_MOODIFICATION'] = False
+
+mysqlLoginId = os.environ.get('authentication.mysql.login.id')
+mysqlLoginPassword = os.environ.get('authentication.mysql.login.password')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + mysqlLoginId + ":" + mysqlLoginPassword + "@localhost/authentication"
+
+app.secret_key = '***REMOVED***'
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = '***REMOVED***'
+app.config['MYSQL_DB'] = 'authentication'
 
 db = SQLAlchemy(app)
-Migrate(app,db)
 
 login_manager.init_app(app)
 login_manager.login_view = 'login'
