@@ -1,3 +1,5 @@
 /UserAuthentication/userAuthentication/models/__pycache__
 /UserAuthentication/userAuthentication/__pycache__ - Copy/*.pyc
 *.pyc
+.env
+*.env

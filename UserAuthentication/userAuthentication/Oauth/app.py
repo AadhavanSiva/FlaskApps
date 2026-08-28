@@ -8,9 +8,13 @@ from flask import Flask,redirect,url_for,render_template
 from flask_dance.contrib.google import make_google_blueprint,google
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '***REMOVED***'
+app.config['SECRET_KEY'] = os.environ.get('OAUTH_SECRET_KEY')
 
-blueprint = make_google_blueprint(client_id='999',client_secret='999',offline=True,scope=['profile','email'])
+blueprint = make_google_blueprint(
+    client_id=os.environ.get('GOOGLE_OAUTH_CLIENT_ID'),
+    client_secret=os.environ.get('GOOGLE_OAUTH_CLIENT_SECRET'),
+    offline=True,
+    scope=['profile', 'email'])
 
 app.register_blueprint(blueprint,url_prefix='/login')
 
