@@ -8,7 +8,7 @@ Connects to MySql database that is installed locally and take login credentials 
 
 Environment Variables:
 
-Set the following environment variables before running the UserAuthentication app (a local `.env` file is gitignored and can be used to store them):
+Set the following environment variables before running the UserAuthentication app (a local `.env` file is gitignored and can be used to store them). Copy `.env.example` to `.env` and fill in real values as a starting point:
 
          authentication.mysql.login.id       MySQL username
          authentication.mysql.login.password MySQL password
